@@ -13,14 +13,28 @@
 */
 
 function calcularMedia() {
-    const nota1 = parseFloat(document.getElementById("nota1").value);
-    const nota2 = parseFloat(document.getElementById("nota2").value);
-    const nota3 = parseFloat(document.getElementById("nota3").value);
-    const nota4 = parseFloat(document.getElementById("nota4").value);
-  
-    let mensagem = "";
-  
-  
+  const nota1 = parseFloat(document.getElementById("nota1").value);
+  const nota2 = parseFloat(document.getElementById("nota2").value);
+  const nota3 = parseFloat(document.getElementById("nota3").value);
+  const nota4 = parseFloat(document.getElementById("nota4").value);
+
+  let mensagem = "";
+  const mediaFinal = (nota1 + nota2 + nota3 + nota4) / 4;
+
+  if (mediaFinal === 0) {
+    mensagem = "Infelizmente você zerou a prova :(";
+  } else if (mediaFinal >= 0 && mediaFinal <= 3) {
+    mensagem = `Caramba, deu ruim, você obteve media ${mediaFinal}! Estude mais e tente novamente!`;
+  } else if (mediaFinal >= 3.1 && mediaFinal <= 5.9) {
+    mensagem = `Você obteve media ${mediaFinal}! Falta pouco para a média.`;
+  } else if (mediaFinal >= 6 && mediaFinal <= 7) {
+    mensagem = `Você está na média com ${mediaFinal}`;
+  } else if (mediaFinal >= 7.1 && mediaFinal <= 9.9) {
+    mensagem = `Notão! Sua média é ${mediaFinal}!`;
+  } else if (mediaFinal >= 10) {
+    mensagem = `Hoje é seu aniversário? Pq você ta de parabéns! 10 de média`;
+  }
+
     // evite mexer na linha de código abaixo!
     document.getElementById("situacaoAluno").innerHTML = mensagem;
   }
